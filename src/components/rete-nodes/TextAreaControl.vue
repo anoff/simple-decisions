@@ -1,5 +1,5 @@
 <template>
-<textarea :value="value" cols="40" rows="5" @input='change($event)'></textarea>
+<textarea :value="value" cols="30" rows="5" @input='change($event)'></textarea>
 </template>
 
 <script>
@@ -27,11 +27,11 @@ export default {
 </script>
 
 <style>
-select, input {
+textarea {
   width: 100%;
   border-radius: 2px;
   background-color: lightcyan;
-  padding: 2px 6px;
+  margin-right: 6px;
   border: 1px solid #fff;
   font-size: 110%;
   width: 170px;
