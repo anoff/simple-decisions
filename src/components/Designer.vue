@@ -12,9 +12,10 @@ import AreaPlugin from 'rete-area-plugin'
 import ContextMenuPlugin from 'rete-context-menu-plugin'
 import { QuestionNode } from './rete-nodes/question'
 import { AnswerNode } from './rete-nodes/answer'
+import data from './rete-nodes/data.json'
 
 export default {
-  mounted () {
+  async mounted () {
     const components = [
       new QuestionNode(),
       new AnswerNode()
@@ -42,9 +43,11 @@ export default {
     )
 
     editor.view.resize()
-    AreaPlugin.zoomAt(editor)
+    await editor.fromJSON(data)
 
+    AreaPlugin.zoomAt(editor)
     setTimeout(() => editor.trigger('process'), 1000)
+    // setInterval(() => console.log(JSON.stringify(editor.toJSON())), 2000)
   }
 }
 

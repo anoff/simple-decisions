@@ -10,7 +10,7 @@ export class AnswerNode extends Rete.Component {
   builder (node) {
     const inp1 = new Rete.Input('q', 'q', eventSocket, true)
     const out = new Rete.Output('output', 'trigger', eventSocket, true)
-    const answerText = new TextControl(this.editor, 'sometext')
+    const answerText = new TextControl(this.editor, 'text')
 
     return node
       .addInput(inp1)

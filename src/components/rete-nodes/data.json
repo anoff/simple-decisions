@@ -1,0 +1,91 @@
+{
+  "id": "demo@0.1.0",
+  "nodes": {
+    "9": {
+      "id": 9,
+      "data": {
+        "text": "what?"
+      },
+      "inputs": {
+        "t": {
+          "connections": []
+        }
+      },
+      "outputs": {
+        "a": {
+          "connections": [
+            {
+              "node": 10,
+              "input": "q",
+              "data": {}
+            },
+            {
+              "node": 11,
+              "input": "q",
+              "data": {}
+            }
+          ]
+        }
+      },
+      "position": [
+        -530.3169464414051,
+        -54.059836496312485
+      ],
+      "name": "Question"
+    },
+    "10": {
+      "id": 10,
+      "data": {
+        "text": "a"
+      },
+      "inputs": {
+        "q": {
+          "connections": [
+            {
+              "node": 9,
+              "output": "a",
+              "data": {}
+            }
+          ]
+        }
+      },
+      "outputs": {
+        "output": {
+          "connections": []
+        }
+      },
+      "position": [
+        287,
+        -153
+      ],
+      "name": "Answer"
+    },
+    "11": {
+      "id": 11,
+      "data": {
+        "text": "b"
+      },
+      "inputs": {
+        "q": {
+          "connections": [
+            {
+              "node": 9,
+              "output": "a",
+              "data": {}
+            }
+          ]
+        }
+      },
+      "outputs": {
+        "output": {
+          "connections": []
+        }
+      },
+      "position": [
+        269,
+        15
+      ],
+      "name": "Answer"
+    }
+  }
+}

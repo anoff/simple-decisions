@@ -31,7 +31,7 @@ export class QuestionNode extends Rete.Component {
   builder (node) {
     const inp1 = new Rete.Input('t', 'trigger', eventSocket)
     const out = new Rete.Output('a', 'possible answers', eventSocket)
-    const ctrl = new TextControl(this.editor, 'enter your question here..', true)
+    const ctrl = new TextControl(this.editor, 'text', true)
 
     inp1.addControl(ctrl)
     return node
