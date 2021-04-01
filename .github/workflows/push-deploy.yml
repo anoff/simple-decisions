@@ -15,6 +15,8 @@ jobs:
     - uses: actions/setup-node@v1
       with:
         node-version: 14
+    - name: install dependencies
+      run: npm ci
     - name: Build HTML
       run: npm run build
     - name: push to gh-pages
