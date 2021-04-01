@@ -4,7 +4,7 @@
 
 ## Usage
 
-Start local developmen server
+Start local development server
 
 ```sh
 npm run serve
