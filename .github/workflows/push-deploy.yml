@@ -16,6 +16,8 @@ jobs:
       run: npm ci
     - name: Build HTML
       run: npm run build
+    - name: prevent jekyll from running
+      run: touch dist/.nojekyll
     - name: push to gh-pages
       uses: JamesIves/github-pages-deploy-action@3.7.1
       with:
