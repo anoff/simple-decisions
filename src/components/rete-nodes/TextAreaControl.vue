@@ -26,14 +26,13 @@ export default {
 }
 </script>
 
-<style>
-textarea {
-  width: 100%;
-  border-radius: 2px;
-  background-color: lightcyan;
-  margin-right: 6px;
-  border: 1px solid #fff;
-  font-size: 110%;
-  width: 170px;
-}
+<style lang="sass">
+textarea
+  resize: none
+  background: none
+  font-family: sans-serif
+  font-size: 12px
+  border: solid 0.5px #333
+  border-radius: 3px
+  width: 100%
 </style>

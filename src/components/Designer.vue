@@ -12,13 +12,15 @@ import AreaPlugin from 'rete-area-plugin'
 import ContextMenuPlugin from 'rete-context-menu-plugin'
 import { QuestionNode } from './rete-nodes/question'
 import { AnswerNode } from './rete-nodes/answer'
+import { DiamondNode } from './rete-nodes/diamond'
 import data from './rete-nodes/data.json'
 
 export default {
   async mounted () {
     const components = [
       new QuestionNode(),
-      new AnswerNode()
+      new AnswerNode(),
+      new DiamondNode()
     ]
 
     const editor = new Rete.NodeEditor('demo@0.1.0', this.$refs.rete)
@@ -53,26 +55,26 @@ export default {
 
 </script>
 
-<style>
-#rete {
-  width: 100%;
-  height: 100%;
-}
+<style lang="sass">
+#rete
+  width: 100%
+  height: 100%
 
-.node .control input, .node .input-control input {
-  width: 140px;
-}
+.node .control input, .node .input-control input
+  width: 140px
 
-#editor-wrapper {
-  flex: 2;
-  width: 500px;
-  height: 500px;
-}
+#editor-wrapper
+  flex: 2
+  width: 500px
+  height: 500px
 
-.event {
-  background: white;
-  border-color: grey;
-  border-radius: 3px;
-  width: 15px;
-}
+.event
+  background: white
+  border-color: grey
+  border-radius: 3px
+  width: 15px
+
+.node-diamond
+  //transform: rotate(45deg)
+  background-color: lightyellow
 </style>
