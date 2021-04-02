@@ -1,10 +1,12 @@
 import Rete from 'rete'
 import { TextControl } from './textControl.js'
 import { event as eventSocket } from './sockets'
+import Node from './AnswerNode.vue'
 
 export class AnswerNode extends Rete.Component {
   constructor () {
     super('Answer')
+    this.data.component = Node
   }
 
   builder (node) {

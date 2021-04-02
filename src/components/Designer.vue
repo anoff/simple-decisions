@@ -59,22 +59,19 @@ export default {
 #rete
   width: 100%
   height: 100%
+  background-color: #eee
 
 .node .control input, .node .input-control input
   width: 140px
 
 #editor-wrapper
   flex: 2
-  width: 500px
-  height: 500px
+  width: 100%
+  height: 800px
 
 .event
   background: white
   border-color: grey
   border-radius: 3px
   width: 15px
-
-.node-diamond
-  //transform: rotate(45deg)
-  background-color: lightyellow
 </style>

@@ -1,18 +1,18 @@
 <template>
 <div class="node-container" :class="[selected(), node.name] | kebab">
-    <!-- Inputs-->
-    <div class="diamond" :class="selected() | kebab"></div>
-    <div class="input" v-for="input in inputs()" :key="input.key">
-      <Socket v-socket:input="input" type="input" :socket="input.socket"></Socket>
-    </div>
-    <!--- hide title <div class="title">{{node.name}}</div> -->
-    <!-- Controls-->
-    <div class="control" v-for="control in controls()" :key="control.key" v-control="control"></div>
-    <!-- Outputs-->
-    <div class="output" v-for="output in outputs()" :key="output.key">
-      <Socket v-socket:output="output" type="output" :socket="output.socket"></Socket>
-    </div>
+  <!-- Inputs-->
+  <div class="diamond" :class="selected() | kebab"></div>
+  <div class="input" v-for="input in inputs()" :key="input.key">
+    <Socket v-socket:input="input" type="input" :socket="input.socket"></Socket>
   </div>
+  <!--- hide title <div class="title">{{node.name}}</div> -->
+  <!-- Controls-->
+  <div class="control" v-for="control in controls()" :key="control.key" v-control="control"></div>
+  <!-- Outputs-->
+  <div class="output" v-for="output in outputs()" :key="output.key">
+    <Socket v-socket:output="output" type="output" :socket="output.socket"></Socket>
+  </div>
+</div>
 </template>
 
 <script>
