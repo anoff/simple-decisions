@@ -17,7 +17,11 @@ export default {
     },
     update () {
       if (this.ikey) this.putData(this.ikey, this.value)
+      console.log('update', this.value)
       this.emitter.trigger('process')
+    },
+    getString () {
+      console.log(this.value)
     }
   },
   mounted () {

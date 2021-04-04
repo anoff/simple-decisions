@@ -12,7 +12,7 @@
         }
       },
       "outputs": {
-        "a": {
+        "A": {
           "connections": [
             {
               "node": 10,

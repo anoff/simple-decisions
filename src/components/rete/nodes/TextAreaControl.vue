@@ -1,5 +1,5 @@
 <template>
-<textarea :value="value" cols="30" rows="5" @input='change($event)'></textarea>
+<textarea :value="value" cols="30" rows="3" @input='change($event)'></textarea>
 </template>
 
 <script>
@@ -28,7 +28,7 @@ export default {
 
 <style lang="sass">
 textarea
-  resize: none
+  resize: none !important
   background: none
   font-family: sans-serif
   font-size: 12px

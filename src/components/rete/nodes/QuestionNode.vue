@@ -63,6 +63,8 @@ $node-width: 180px
   .output
     text-align: right
     display: inline-block
+    .socket
+      border-radius: $socket-size/2
 
   .input
     text-align: left
@@ -79,8 +81,4 @@ $node-width: 180px
     border-radius: 0
     width: $socket-size
     height: $socket-size
-  .output
-    .socket
-      background: lighten($socket-color, 50%)
-      border-color: darken($socket-border-color, 5%)
 </style>

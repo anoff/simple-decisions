@@ -22,7 +22,7 @@ import AreaPlugin from 'rete-area-plugin'
 import ContextMenuPlugin from 'rete-context-menu-plugin'
 import { QuestionNode } from './rete/nodes/question'
 import { AnswerNode } from './rete/nodes/answer'
-import { DiamondNode } from './rete/nodes/diamond'
+import { TextNode } from './rete/nodes/text'
 import data from './rete/data.json'
 
 export default {
@@ -35,27 +35,23 @@ export default {
     const components = [
       new QuestionNode(),
       new AnswerNode(),
-      new DiamondNode()
+      new TextNode()
     ]
 
     const editor = new Rete.NodeEditor('demo@0.1.0', this.$refs.rete)
     editor.use(ConnectionPlugin)
     editor.use(VueRenderPlugin)
-    editor.use(ContextMenuPlugin)
+    editor.use(ContextMenuPlugin, { searchBar: false, delay: 10000 })
     editor.use(AreaPlugin)
-
-    const engine = new Rete.Engine('demo@0.1.0')
 
     components.map(c => {
       editor.register(c)
-      engine.register(c)
     })
 
     editor.on(
       'process nodecreated noderemoved connectioncreated connectionremoved',
       async () => {
-        await engine.abort()
-        await engine.process(editor.toJSON())
+        console.log('processing')
       }
     )
 
@@ -63,7 +59,7 @@ export default {
     await editor.fromJSON(data)
 
     AreaPlugin.zoomAt(editor)
-    setTimeout(() => editor.trigger('process'), 1000)
+    setTimeout(() => editor.trigger('process'), 100)
     // setInterval(() => console.log(JSON.stringify(editor.toJSON())), 2000)
     this.editor = editor
   },
@@ -78,6 +74,7 @@ export default {
 </script>
 
 <style lang="sass">
+$context-menu-color: #b0b5b0
 #rete
   width: 100%
   height: 100%
@@ -87,6 +84,17 @@ export default {
   flex: 2
   width: 100%
   height: 800px
+  .context-menu
+    .item
+      border-radius: 0px
+      background-color: $context-menu-color
+      font-family: sans-serif
+      text-align: center
+      border-color: #333
+      &:hover
+        background-color: lighten($context-menu-color, 10%)
+      &:last-of-type
+        border-bottom-width: 0
 
 .event
   background: white
