@@ -39,6 +39,7 @@ export default {
     ]
 
     const editor = new Rete.NodeEditor('demo@0.1.0', this.$refs.rete)
+    this.editor = editor
     editor.use(ConnectionPlugin)
     editor.use(VueRenderPlugin)
     editor.use(ContextMenuPlugin, { searchBar: false, delay: 10000 })
@@ -52,16 +53,20 @@ export default {
       'process nodecreated noderemoved connectioncreated connectionremoved',
       async () => {
         console.log('processing')
+        localStorage.setItem('graph', JSON.stringify(editor.toJSON()))
       }
     )
 
     editor.view.resize()
-    await editor.fromJSON(data)
+    if (localStorage.getItem('graph')) {
+      await editor.fromJSON(JSON.parse(localStorage.getItem('graph')))
+    } else {
+      await editor.fromJSON(data)
+    }
 
     AreaPlugin.zoomAt(editor)
     setTimeout(() => editor.trigger('process'), 100)
     // setInterval(() => console.log(JSON.stringify(editor.toJSON())), 2000)
-    this.editor = editor
   },
   methods: {
     doStuff () {
