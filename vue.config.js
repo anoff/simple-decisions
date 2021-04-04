@@ -1,4 +1,8 @@
 module.exports = {
   publicPath: process.env.NODE_ENV === 'production' ? '/simple-decisions/' : '/',
-  runtimeCompiler: true
+  runtimeCompiler: true,
+
+  transpileDependencies: [
+    'vuetify'
+  ]
 }

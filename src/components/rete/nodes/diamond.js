@@ -1,5 +1,5 @@
 import Rete from 'rete'
-import { event as eventSocket } from './sockets'
+import { event as eventSocket } from '../sockets'
 import { TextControl } from './textControl.js'
 import Node from './DiamondNode.vue'
 

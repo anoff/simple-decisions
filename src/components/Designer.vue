@@ -1,6 +1,16 @@
 <template>
   <div id="editor-wrapper">
     <div id="rete" ref="rete"></div>
+    <v-btn
+      color="pink"
+      fab
+      dark
+      bottom
+      right
+      @click="doStuff()"
+    >
+      <v-icon>mdi-plus</v-icon>
+    </v-btn>
   </div>
 </template>
 
@@ -10,12 +20,17 @@ import VueRenderPlugin from 'rete-vue-render-plugin'
 import ConnectionPlugin from 'rete-connection-plugin'
 import AreaPlugin from 'rete-area-plugin'
 import ContextMenuPlugin from 'rete-context-menu-plugin'
-import { QuestionNode } from './rete-nodes/question'
-import { AnswerNode } from './rete-nodes/answer'
-import { DiamondNode } from './rete-nodes/diamond'
-import data from './rete-nodes/data.json'
+import { QuestionNode } from './rete/nodes/question'
+import { AnswerNode } from './rete/nodes/answer'
+import { DiamondNode } from './rete/nodes/diamond'
+import data from './rete/data.json'
 
 export default {
+  data () {
+    return {
+      editor: null
+    }
+  },
   async mounted () {
     const components = [
       new QuestionNode(),
@@ -50,6 +65,13 @@ export default {
     AreaPlugin.zoomAt(editor)
     setTimeout(() => editor.trigger('process'), 1000)
     // setInterval(() => console.log(JSON.stringify(editor.toJSON())), 2000)
+    this.editor = editor
+  },
+  methods: {
+    doStuff () {
+      window.e = this.editor
+      console.log(this.editor)
+    }
   }
 }
 
@@ -60,9 +82,6 @@ export default {
   width: 100%
   height: 100%
   background-color: #eee
-
-.node .control input, .node .input-control input
-  width: 140px
 
 #editor-wrapper
   flex: 2
